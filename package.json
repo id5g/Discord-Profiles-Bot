@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Dark Dev",
+  "license": "MIT",
   "dependencies": {
     "discord-arts": "^0.7.1",
     "discord.js": "^14.19.3"
