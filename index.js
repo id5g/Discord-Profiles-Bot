@@ -22,6 +22,8 @@ client.on(Events.MessageCreate, async (message) => {
         const user = message.mentions.users.first() || message.author;
         const member = await message.guild.members.cache.get(user.id);
 
+        await message.channel.sendTyping();
+
         const buffer = await Profile(member.id, {
             font: 'HELVETICA',
             squareAvatar: false,
