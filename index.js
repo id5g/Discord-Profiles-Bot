@@ -49,8 +49,9 @@ client.on(Events.MessageCreate, async (message) => {
             }
 
             try {
-                await exec('git reset --hard');
+                await exec('git stash');
                 const { stdout } = await execPromise('git pull');
+                await exec('git stash pop');
 
                 if (!stdout.includes('Already up to date.')) {
                     await message.reply({
