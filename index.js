@@ -60,7 +60,7 @@ client.on(Events.MessageCreate, async (message) => {
 
                     setTimeout(() => {
                         process.exit();
-                    }, 10 * 1000);
+                    }, 1500);
                 } else {
                     await message.reply({
                         content: `**the bot is already up to date.**`
@@ -76,4 +76,5 @@ client.on(Events.MessageCreate, async (message) => {
     });                                     
 
 client.login(config.Bot.token);
+// https://darkdev.us.kg
 // https://winter.us.kg
