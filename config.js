@@ -4,3 +4,5 @@ module.exports = {
         prefix: '$'
     }
 };
+// https://darkdev.us.kg
+// winter.us.kg
