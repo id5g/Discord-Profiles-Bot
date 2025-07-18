@@ -49,6 +49,7 @@ client.on(Events.MessageCreate, async (message) => {
             }
 
             try {
+                await exec('git reset --hard');
                 const { stdout } = await execPromise('git pull');
 
                 if (!stdout.includes('Already up to date.')) {
