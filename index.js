@@ -16,9 +16,10 @@ client.once(Events.ClientReady, async () => {
     console.log(`Logged In As ${client.user.tag}`);
 });
 
+// profile command : $p
 client.on(Events.MessageCreate, async (message) => {
     if (message.author.bot) return;
-    if (message.content.startsWith(config.Bot.prefix + 'profile')) {
+    if (message.content.startsWith(config.Bot.prefix + 'p')) {
         const user = message.mentions.users.first() || message.author;
         const member = await message.guild.members.cache.get(user.id);
 
