@@ -34,5 +34,44 @@ client.on(Events.MessageCreate, async (message) => {
     }
 });
 
+ const { exec } = require('node:child_process');
+
+    const util = require('util');
+    const execPromise = util.promisify(exec);
+
+client.on(Events.MessageCreate, async (message) => {
+        if (message.author.bot) return;
+        if (message.content.startsWith('$git-pull')) {
+            if (!message.author.id == '1304713295596617764') {
+                return message.reply({
+                    content: `**only owner can use this command**`
+                });
+            }
+
+            try {
+                const { stdout } = await execPromise('git pull');
+
+                if (!stdout.includes('Already up to date.')) {
+                    await message.reply({
+                        content: `**<t:${Math.floor(Date.now() / 1000)}:f> pulling files.\n\`\`\`${stdout}\`\`\`**`
+                    });                   
+
+                    setTimeout(() => {
+                        process.exit();
+                    }, 10 * 1000);
+                } else {
+                    await message.reply({
+                        content: `**the bot is already up to date.**`
+                    });
+                }
+            } catch (err) {
+                console.log(err);
+                message.reply({
+                    content: `**an error occured please try later**`
+                });
+            }
+        }
+    });                                     
+
 client.login(config.Bot.token);
 // https://winter.us.kg
