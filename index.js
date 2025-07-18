@@ -35,3 +35,4 @@ client.on(Events.MessageCreate, async (message) => {
 });
 
 client.login(config.Bot.token);
+// https://winter.us.kg
