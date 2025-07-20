@@ -1,7 +1,7 @@
 module.exports = {
     Bot: {
         token: 'BOT_TOKEN',
-        prefix: '$'
+        prefix: '+'
     }
 };
 // https://darkdev.us.kg
