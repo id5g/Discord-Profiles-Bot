@@ -19,7 +19,7 @@ client.once(Events.ClientReady, async () => {
 // profile command : $p
 client.on(Events.MessageCreate, async (message) => {
     if (message.author.bot) return;
-    if (message.content.startsWith(config.Bot.prefix + 'p')) {
+    if (message.content.startsWith(config.Bot.prefix + 'pp')) {
         const user = message.mentions.users.first() || message.author;
         const member = await message.guild.members.cache.get(user.id);
 
