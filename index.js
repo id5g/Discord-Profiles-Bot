@@ -35,10 +35,9 @@ client.on(Events.MessageCreate, async (message) => {
     }
 });
 
- const { exec } = require('node:child_process');
-
-    const util = require('util');
-    const execPromise = util.promisify(exec);
+const { exec } = require('node:child_process');
+const util = require('util');
+const execPromise = util.promisify(exec);
 
 client.on(Events.MessageCreate, async (message) => {
         if (message.author.bot) return;
@@ -50,9 +49,7 @@ client.on(Events.MessageCreate, async (message) => {
             }
 
             try {
-                await exec('git stash');
                 const { stdout } = await execPromise('git pull');
-                await exec('git stash pop');
 
                 if (!stdout.includes('Already up to date.')) {
                     await message.reply({
@@ -61,7 +58,7 @@ client.on(Events.MessageCreate, async (message) => {
 
                     setTimeout(() => {
                         process.exit();
-                    }, 1500);
+                    }, 1000);
                 } else {
                     await message.reply({
                         content: `**the bot is already up to date.**`
